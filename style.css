@@ -438,13 +438,15 @@ footer a:hover {
         grid-template-columns: 1fr;
     }
     .about-image {
-        margin-top: -4rem;
+        /* A more confident overlap for mobile */
+        margin-top: -6rem; 
         width: 80%;
         margin-left: auto;
         margin-right: auto;
     }
     .about-text {
-        margin-top: 2rem;
+        /* We remove the conflicting margin-top. The section's padding will handle the spacing. */
+        margin-top: 0; 
     }
 
     /* --- MOBILE NAVIGATION STYLES --- */
