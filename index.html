@@ -5,13 +5,16 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Knight Studios - Fine Art Pen & Ink</title>
 
-    <!-- Google Fonts (Switched to EB Garamond & Montserrat) -->
+    <!-- Google Fonts -->
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=EB+Garamond:wght@700&family=Montserrat:wght@300;400&display=swap" rel="stylesheet">
     
     <!-- Font Awesome for Icons -->
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css" integrity="sha512-DTOQO9RWCH3ppGqcWaEA1BIZOC6xxalwEsw9c2QQeAIftl+Vegovlnee1c9QX4TctnWMn13TZye+giMm8e2LwA==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+
+    <!-- AOS (Animate on Scroll) CSS -->
+    <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet">
 
     <!-- p5.js Library -->
     <script src="https://cdnjs.cloudflare.com/ajax/libs/p5.js/1.9.0/p5.js"></script>
@@ -34,20 +37,21 @@
     </header>
 
     <main>
-        <!-- This div will hold the p5.js canvas -->
-        <div id="p5-canvas-container"></div>
-        
         <section class="hero">
-            <h1>Fine Art Pen & Ink Illustrations</h1>
-            <p>Original works by Andrew Knight</p>
+            <div id="p5-canvas-container"></div>
+            <div class="hero-content" data-aos="fade-in" data-aos-duration="1500">
+                <h1>Fine Art Pen & Ink Illustrations</h1>
+                <!-- NAME UPDATED BELOW -->
+                <p>Original works by Andrew Knight</p>
+            </div>
         </section>
 
         <section id="gallery" class="gallery-section">
-            <h2>Our Collection</h2>
+            <h2 data-aos="fade-up">Our Collection</h2>
             <div class="product-grid">
 
                 <!-- Product 1: The Dog -->
-                <div class="product-card">
+                <div class="product-card" data-aos="fade-up" data-aos-delay="100">
                     <img src="Assets/patiently-waiting.jpg" alt="Pen and ink drawing of a poodle looking out a window.">
                     <h3>Patiently Waiting</h3>
                     <div class="purchase-options">
@@ -57,7 +61,7 @@
                 </div>
 
                 <!-- Product 2: The Herndon Home -->
-                <div class="product-card">
+                <div class="product-card" data-aos="fade-up" data-aos-delay="200">
                     <img src="Assets/herndon-house.jpg" alt="Pen and ink drawing of The Herndon Home in Atlanta, GA.">
                     <h3>The Herndon Home, Atlanta GA</h3>
                     <div class="purchase-options">
@@ -67,7 +71,7 @@
                 </div>
 
                 <!-- Product 3: MLK Jr. Birth Home -->
-                <div class="product-card">
+                <div class="product-card" data-aos="fade-up" data-aos-delay="300">
                     <img src="Assets/mlk-birth-home.jpg" alt="Pen and ink drawing of the birth home of Martin Luther King Jr.">
                     <h3>MLK Jr. Birth Home</h3>
                     <div class="purchase-options">
@@ -78,40 +82,43 @@
 
             </div>
         </section>
-    </div> <!-- This is the closing div of .product-grid -->
-</section> <!-- This is the closing tag of .gallery-section -->
 
-<!-- ========== PASTE THE NEW SECTION BELOW ========== -->
-
-<section id="about" class="about-section">
-    <div class="about-content">
-        <div class="about-image">
-            <!-- You'll need to add a photo of your father to the assets folder -->
-            <img src="Assets/artist-photo.PNG" alt="A photo of the artist, A. Knight.">
-        </div>
-        <div class="about-text">
-
-            <!-- ...and replace its contents with this: -->
-            <h2>About the Artist</h2>
-            <p>Drawing from his professional life as an architect, Andrew Knight brings a unique structural understanding to his pen and ink illustrations. This deep appreciation for form, light, and precision informs his work, which focuses on architectural landmarks and moments of quiet contemplation.</p>
-            <p>Each piece is a testament to this dual passion, a labor of love composed of thousands of individual dots that build a rich tapestry of shadow and line. Welcome to his studio.</p>
-        
-        </div>
-</section>
-
-</main> <!-- This should now be below the new section -->
+        <section id="about" class="about-section">
+            <div class="about-content">
+                <div class="about-image" data-aos="fade-right">
+                    <!-- ALT TEXT UPDATED BELOW -->
+                    <img src="Assets/artist-photo.png" alt="A photo of the artist, Andrew Knight.">
+                </div>
+                <div class="about-text" data-aos="fade-left" data-aos-delay="100">
+                    <h2>About the Artist</h2>
+                    <!-- NAME UPDATED BELOW -->
+                    <p>Drawing from his professional life as an architect, Andrew Knight brings a unique structural understanding to his pen and ink illustrations. This deep appreciation for form, light, and precision informs his work, which focuses on architectural landmarks and moments of quiet contemplation.</p>
+                    <p>Each piece is a testament to this dual passion, a labor of love composed of thousands of individual dots that build a rich tapestry of shadow and line. Welcome to his studio.</p>
+                    <!-- ALT TEXT UPDATED BELOW -->
+                    <img src="Assets/signature.png" alt="Andrew Knight's signature" class="signature">
+                </div>
+            </div>
+        </section>
     </main>
 
     <footer id="contact">
-        <!-- ADDED INSTAGRAM LINK BELOW -->
         <div class="social-links">
             <a href="https://www.instagram.com/knightln91/" target="_blank" aria-label="Instagram Profile">
                 <i class="fa-brands fa-instagram"></i>
             </a>
         </div>
-        <p>© 2025 Knight Studios. All Rights Reserved.</p>
+        <p>© 2024 Knight Studios. All Rights Reserved.</p>
         <p>For commissions or inquiries, please email <a href="mailto:contact@knightstudios.art">contact@knightstudios.art</a></p>
     </footer>
+
+    <!-- AOS (Animate on Scroll) JAVASCRIPT -->
+    <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
+    <script>
+      AOS.init({
+        duration: 800, // Animation duration
+        once: true, // Whether animation should happen only once - while scrolling down
+      });
+    </script>
 
 </body>
 </html>
