@@ -16,6 +16,9 @@
     <!-- AOS (Animate on Scroll) CSS -->
     <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet">
 
+    <!-- Swiper.js CSS -->
+    <link rel="stylesheet" href="https://unpkg.com/swiper/swiper-bundle.min.css" />
+
     <!-- basicLightbox CSS -->
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/basiclightbox@5.0.4/dist/basicLightbox.min.css">
 
@@ -34,7 +37,6 @@
                 <li><a href="#about">About</a></li>
                 <li><a href="#contact">Contact</a></li>
             </ul>
-            <!-- ========== NEW: HAMBURGER MENU BUTTON ========== -->
             <button id="hamburger-btn" aria-label="Open navigation menu">
                 <span class="line line-1"></span>
                 <span class="line line-2"></span>
@@ -44,58 +46,77 @@
     </header>
 
     <main>
-       <!-- ========================================================== -->
-<!-- REPLACE your existing <section class="hero"> with this one -->
-<!-- ========================================================== -->
-<section class="hero">
-    <div id="p5-canvas-container"></div>
-    <div class="hero-content">
-        <!-- CHANGE HERE: from fade-right to fade-left (it animates IN from the left) -->
-        <h1 class="hero-main-title" data-aos="fade-left" data-aos-duration="1000">
-            Fine Art Pen & Ink
-        </h1>
-        <!-- CHANGE HERE: from fade-right to fade-left -->
-        <hr class="divider" data-aos="fade-left" data-aos-duration="1000" data-aos-delay="200">
-        <!-- CHANGE HERE: from fade-right to fade-left -->
-        <p class="hero-subtitle" data-aos="fade-left" data-aos-duration="1000" data-aos-delay="400">
-            <span>Illustrations by</span> Andrew Knight
-        </p>
-    </div>
-</section>
+        <section class="hero">
+            <div id="p5-canvas-container"></div>
+            <div class="hero-content">
+                <h1 class="hero-main-title" data-aos="fade-left" data-aos-duration="1000">
+                    Fine Art Pen & Ink
+                </h1>
+                <hr class="divider" data-aos="fade-left" data-aos-duration="1000" data-aos-delay="200">
+                <p class="hero-subtitle" data-aos="fade-left" data-aos-duration="1000" data-aos-delay="400">
+                    <span>Illustrations by</span> Andrew Knight
+                </p>
+            </div>
+        </section>
 
         <section id="gallery" class="gallery-section">
             <h2 data-aos="fade-up">Our Collection</h2>
-            <div class="product-grid">
-                <div class="product-card" data-aos="fade-up" data-aos-delay="100">
-                    <a href="Assets/patiently-waiting.jpg" class="lightbox-trigger">
-                        <img src="Assets/patiently-waiting.jpg" alt="Pen and ink drawing of a poodle looking out a window.">
-                    </a>
-                    <h3>Patiently Waiting</h3>
-                    <div class="purchase-options">
-                        <a href="https://www.redbubble.com/shop/your-product-link-here" target="_blank" class="btn">Buy Print</a>
-                        <a href="https://www.redbubble.com/shop/your-product-link-here" target="_blank" class="btn">Buy T-Shirt</a>
+        
+            <div class="swiper-container-gallery" data-aos="fade-up" data-aos-delay="100">
+                <div class="swiper-wrapper">
+        
+                    <!-- Slide 1: Patiently Waiting -->
+                    <div class="swiper-slide">
+                        <a href="Assets/patiently-waiting.jpg" class="lightbox-trigger">
+                            <img src="Assets/patiently-waiting.jpg" alt="Pen and ink drawing of a poodle looking out a window.">
+                        </a>
+                        <h3>Patiently Waiting</h3>
+                        <div class="purchase-options">
+                            <a href="YOUR_PRINT_LINK_HERE" target="_blank" class="btn">Buy Print</a>
+                            <a href="YOUR_TSHIRT_LINK_HERE" target="_blank" class="btn">Buy T-Shirt</a>
+                        </div>
+                        <button class="info-toggle">About this Piece <span class="toggle-icon"></span></button>
+                        <div class="info-panel">
+                            <p>This is Maya, our beloved family Bichon Frise. She has a habit of waiting patiently by the window, watching the world go by. This piece captures one of those quiet, contemplative moments that make a house feel like a home.</p>
+                        </div>
                     </div>
-                </div>
-                <div class="product-card" data-aos="fade-up" data-aos-delay="200">
-                     <a href="Assets/herndon-house.jpg" class="lightbox-trigger">
-                        <img src="Assets/herndon-house.jpg" alt="Pen and ink drawing of The Herndon Home in Atlanta, GA.">
-                    </a>
-                    <h3>The Herndon Home, Atlanta GA</h3>
-                    <div class="purchase-options">
-                        <a href="https://www.redbubble.com/shop/your-product-link-here" target="_blank" class="btn">Buy Print</a>
-                        <a href="https://www.redbubble.com/shop/your-product-link-here" target="_blank" class="btn">Buy T-Shirt</a>
+        
+                    <!-- Slide 2: The Herndon Home -->
+                    <div class="swiper-slide">
+                         <a href="Assets/herndon-house.jpg" class="lightbox-trigger">
+                            <img src="Assets/herndon-house.jpg" alt="Pen and ink drawing of The Herndon Home in Atlanta, GA.">
+                        </a>
+                        <h3>The Herndon Home, GA</h3>
+                        <div class="purchase-options">
+                            <a href="YOUR_PRINT_LINK_HERE" target="_blank" class="btn">Buy Print</a>
+                            <a href="YOUR_TSHIRT_LINK_HERE" target="_blank" class="btn">Buy T-Shirt</a>
+                        </div>
+                        <button class="info-toggle">About this Landmark <span class="toggle-icon"></span></button>
+                        <div class="info-panel">
+                            <p>The Herndon Home is a historic house museum in Atlanta, GA. It was the home of Alonzo Franklin Herndon, a former slave who became Atlanta's first Black millionaire. The exquisite Beaux-Arts mansion was completed in 1910.</p>
+                        </div>
                     </div>
-                </div>
-                <div class="product-card" data-aos="fade-up" data-aos-delay="300">
-                     <a href="Assets/mlk-birth-home.jpg" class="lightbox-trigger">
-                        <img src="Assets/mlk-birth-home.jpg" alt="Pen and ink drawing of the birth home of Martin Luther King Jr.">
-                    </a>
-                    <h3>MLK Jr. Birth Home</h3>
-                    <div class="purchase-options">
-                        <a href="https://www.redbubble.com/shop/your-product-link-here" target="_blank" class="btn">Buy Print</a>
-                        <a href="https://www.redbubble.com/shop/your-product-link-here" target="_blank" class="btn">Buy T-Shirt</a>
+        
+                    <!-- Slide 3: MLK Jr. Birth Home -->
+                    <div class="swiper-slide">
+                         <a href="Assets/mlk-birth-home.jpg" class="lightbox-trigger">
+                            <img src="Assets/mlk-birth-home.jpg" alt="Pen and ink drawing of the birth home of Martin Luther King Jr.">
+                        </a>
+                        <h3>MLK Jr. Birth Home</h3>
+                        <div class="purchase-options">
+                            <a href="YOUR_PRINT_LINK_HERE" target="_blank" class="btn">Buy Print</a>
+                            <a href="YOUR_TSHIRT_LINK_HERE" target="_blank" class="btn">Buy T-Shirt</a>
+                        </div>
+                        <button class="info-toggle">About this Landmark <span class="toggle-icon"></span></button>
+                        <div class="info-panel">
+                            <p>Located on Auburn Avenue in Atlanta, this Queen Anne style house was the birthplace and childhood home of civil rights leader Martin Luther King Jr. It stands as a powerful symbol of his origins and the community that shaped him.</p>
+                        </div>
                     </div>
+        
                 </div>
+                <!-- Add Navigation -->
+                <div class="swiper-button-next"></div>
+                <div class="swiper-button-prev"></div>
             </div>
         </section>
 
@@ -128,7 +149,6 @@
                 </div>
             </div>
         </section>
-
     </main>
 
     <footer id="contact">
@@ -147,9 +167,10 @@
 
     <!-- JAVASCRIPT LIBRARIES -->
     <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
+    <script src="https://unpkg.com/swiper/swiper-bundle.min.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/basiclightbox@5.0.4/dist/basicLightbox.min.js"></script>
     
-    <!-- ========== NEW: CUSTOM NAVIGATION SCRIPT ========== -->
+    <!-- CUSTOM NAVIGATION SCRIPT -->
     <script src="nav.js"></script>
 
     <!-- MAIN SCRIPT INITIALIZERS -->
@@ -179,6 +200,34 @@
         window.scrollTo({
           top: 0,
           behavior: "smooth"
+        });
+      });
+
+      // Initialize Swiper Carousel
+      const swiper = new Swiper('.swiper-container-gallery', {
+        effect: 'coverflow',
+        grabCursor: true,
+        centeredSlides: true,
+        slidesPerView: 'auto',
+        loop: true,
+        coverflowEffect: {
+          rotate: 50,
+          stretch: 0,
+          depth: 100,
+          modifier: 1,
+          slideShadows: true,
+        },
+        navigation: {
+          nextEl: '.swiper-button-next',
+          prevEl: '.swiper-button-prev',
+        },
+      });
+
+      // "Info Toggle" button functionality
+      document.querySelectorAll('.info-toggle').forEach(button => {
+        button.addEventListener('click', () => {
+          const slide = button.closest('.swiper-slide');
+          slide.classList.toggle('info-open');
         });
       });
     </script>

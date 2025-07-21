@@ -1,17 +1,15 @@
-/* --- [V4] Premium Redesign - New Fonts & Footer --- */
+/* --- [V6] Premium Redesign - Carousel Gallery Fix --- */
 
-/* --- 1. THE PALETTE & THE NEW FONTS --- */
+/* --- THE PALETTE & FONTS --- */
 :root {
-    --bg-color: #f7f5f2; /* A warm, creamy off-white */
+    --bg-color: #f7f5f2;
     --card-bg: #ffffff;
-    --text-color: #4a4a4a; /* A softer, complex dark gray */
-    /* --- THE NEW FONTS --- */
+    --text-color: #4a4a4a;
     --heading-font: 'Cormorant Garamond', serif;
     --body-font: 'Nunito Sans', sans-serif;
-    /* --- END NEW FONTS --- */
     --border-color: #e8e8e8;
     --accent-color: #2c3e50;
-    --hero-bg: #1f2124; /* A slightly softer, more complex black */
+    --hero-bg: #1f2124;
 }
 
 * {
@@ -105,7 +103,7 @@ nav {
 }
 
 
-/* --- Hero Section & p5.js Canvas --- */
+/* --- Hero Section --- */
 .hero {
     position: relative;
     height: 450px;
@@ -171,68 +169,115 @@ nav {
     margin-bottom: 0.25rem;
 }
 
-/* --- Gallery Section --- */
+/* --- Gallery Section - 3D Carousel --- */
 .gallery-section {
-    padding: 6rem 5%;
+    padding: 6rem 0;
     text-align: center;
-    padding-bottom: 18rem; /* Breathing room for overlap */
+    padding-bottom: 16rem;
+    overflow: hidden;
 }
 
 h2 {
     font-family: var(--heading-font);
-    font-size: 3rem; /* Slightly larger for new font */
-    margin-bottom: 4rem;
+    font-size: 3rem;
+    margin-bottom: 1rem; /* Reduced margin to bring carousel closer */
 }
 
-.product-grid {
-    display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
-    gap: 3rem;
-    max-width: 1200px;
-    margin: 0 auto;
+.swiper-container-gallery {
+    width: 100%;
+    padding-top: 50px;
+    padding-bottom: 50px;
 }
 
-.product-card {
+.swiper-slide {
+    background-position: center;
+    background-size: cover;
+    width: 320px;
     background-color: var(--card-bg);
     border: 1px solid var(--border-color);
     border-radius: 4px;
-    overflow: hidden;
     text-align: left;
     box-shadow: 0 4px 6px rgba(0,0,0,0.03), 0 10px 20px rgba(0,0,0,0.03);
-    transition: transform 0.4s ease, box-shadow 0.4s ease;
+    transition: all 0.4s ease;
+    overflow: hidden;
 }
 
-.product-card:hover {
-    transform: translateY(-10px);
-    box-shadow: 0 7px 14px rgba(0,0,0,0.05), 0 15px 30px rgba(0,0,0,0.07);
-}
-
-.product-card img {
+.swiper-slide img {
+    display: block;
     width: 100%;
-    height: auto;
-    display: block;
-    transition: transform 0.4s ease;
 }
 
-.product-card:hover img {
-    transform: scale(1.05);
-}
-
-.lightbox-trigger {
-    border-bottom: 1px solid var(--border-color);
-    display: block;
-}
-
-.product-card h3 {
+.swiper-slide h3 {
     font-family: var(--heading-font);
     padding: 1.5rem 1.5rem 0.5rem;
-    font-size: 1.6rem; /* Slightly larger for new font */
+    font-size: 1.6rem;
 }
 
 .purchase-options {
-    padding: 0.5rem 1.5rem 1.5rem;
+    padding: 0.5rem 1.5rem 1rem;
     display: flex;
     gap: 1rem;
+}
+
+.swiper-button-next,
+.swiper-button-prev {
+    color: var(--accent-color);
+    transform: translateY(-50%);
+}
+
+.info-toggle {
+    background: none;
+    border: none;
+    border-top: 1px solid var(--border-color);
+    width: 100%;
+    text-align: left;
+    padding: 1rem 1.5rem;
+    font-family: var(--body-font);
+    font-size: 0.9rem;
+    color: var(--text-color);
+    cursor: pointer;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    transition: background-color 0.3s ease;
+}
+
+.info-toggle:hover {
+    background-color: #fafafa;
+}
+
+.toggle-icon {
+    display: inline-block;
+    width: 10px;
+    height: 10px;
+    border-right: 2px solid var(--text-color);
+    border-bottom: 2px solid var(--text-color);
+    transform: rotate(45deg);
+    transition: transform 0.3s cubic-bezier(0.25, 0.8, 0.25, 1);
+}
+
+.swiper-slide.info-open .toggle-icon {
+    transform: rotate(-135deg);
+}
+
+.info-panel {
+    background-color: #f7f5f2;
+    padding: 0 1.5rem;
+    max-height: 0;
+    opacity: 0;
+    transition: max-height 0.5s ease-out, opacity 0.5s ease-out, padding 0.5s ease-out;
+}
+
+.swiper-slide.info-open .info-panel {
+    max-height: 500px;
+    opacity: 1;
+    padding: 0 1.5rem 1.5rem 1.5rem; /* Padding only when open */
+}
+
+.info-panel p {
+    font-size: 0.95rem;
+    line-height: 1.6;
+    margin: 0;
 }
 
 .btn {
@@ -377,19 +422,19 @@ h2 {
     transform: translateY(-2px);
 }
 
-/* --- [V4] THE NEW FOOTER --- */
+/* --- Footer --- */
 footer {
-    background-color: var(--hero-bg); /* Match the dark hero background */
-    color: #a0a0a0; /* A lighter gray for dark background readability */
+    background-color: var(--hero-bg);
+    color: #a0a0a0;
     text-align: center;
     padding: 4rem 1rem 3rem;
     font-size: 0.9rem;
 }
 
 footer a {
-    color: #ffffff; /* White links for high contrast */
+    color: #ffffff;
     text-decoration: none;
-    border-bottom: 1px solid #555; /* A subtle underline */
+    border-bottom: 1px solid #555;
     transition: all 0.3s ease;
 }
 
@@ -431,22 +476,17 @@ footer a:hover {
     h2 {
         font-size: 2.5rem;
     }
-    .product-grid {
-        grid-template-columns: 1fr;
-    }
     .about-content {
         grid-template-columns: 1fr;
     }
     .about-image {
-        /* A more confident overlap for mobile */
-        margin-top: -6rem; 
+        margin-top: -4rem;
         width: 80%;
         margin-left: auto;
         margin-right: auto;
     }
     .about-text {
-        /* We remove the conflicting margin-top. The section's padding will handle the spacing. */
-        margin-top: 0; 
+        margin-top: 2rem;
     }
 
     /* --- MOBILE NAVIGATION STYLES --- */
