@@ -16,11 +16,12 @@
     <!-- AOS (Animate on Scroll) CSS -->
     <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet">
 
-    <!-- p5.js Library -->
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/p5.js/1.9.0/p5.js"></script>
+    <!-- basicLightbox CSS -->
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/basiclightbox@5.0.4/dist/basicLightbox.min.css">
 
     <!-- Your Custom CSS and JS -->
     <link rel="stylesheet" href="style.css">
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/p5.js/1.9.0/p5.js"></script>
     <script src="sketch.js" defer></script>
 </head>
 <body>
@@ -28,11 +29,17 @@
     <header>
         <nav>
             <div class="logo">Knight Studios</div>
-            <ul class="nav-links">
+            <ul class="nav-links" id="nav-links">
                 <li><a href="#gallery">Gallery</a></li>
                 <li><a href="#about">About</a></li>
                 <li><a href="#contact">Contact</a></li>
             </ul>
+            <!-- ========== NEW: HAMBURGER MENU BUTTON ========== -->
+            <button id="hamburger-btn" aria-label="Open navigation menu">
+                <span class="line line-1"></span>
+                <span class="line line-2"></span>
+                <span class="line line-3"></span>
+            </button>
         </nav>
     </header>
 
@@ -41,7 +48,6 @@
             <div id="p5-canvas-container"></div>
             <div class="hero-content" data-aos="fade-in" data-aos-duration="1500">
                 <h1>Fine Art Pen & Ink Illustrations</h1>
-                <!-- NAME UPDATED BELOW -->
                 <p>Original works by Andrew Knight</p>
             </div>
         </section>
@@ -49,56 +55,69 @@
         <section id="gallery" class="gallery-section">
             <h2 data-aos="fade-up">Our Collection</h2>
             <div class="product-grid">
-
-                <!-- Product 1: The Dog -->
                 <div class="product-card" data-aos="fade-up" data-aos-delay="100">
-                    <img src="Assets/patiently-waiting.jpg" alt="Pen and ink drawing of a poodle looking out a window.">
+                    <a href="Assets/patiently-waiting.jpg" class="lightbox-trigger">
+                        <img src="Assets/patiently-waiting.jpg" alt="Pen and ink drawing of a poodle looking out a window.">
+                    </a>
                     <h3>Patiently Waiting</h3>
                     <div class="purchase-options">
                         <a href="https://www.redbubble.com/shop/your-product-link-here" target="_blank" class="btn">Buy Print</a>
                         <a href="https://www.redbubble.com/shop/your-product-link-here" target="_blank" class="btn">Buy T-Shirt</a>
                     </div>
                 </div>
-
-                <!-- Product 2: The Herndon Home -->
                 <div class="product-card" data-aos="fade-up" data-aos-delay="200">
-                    <img src="Assets/herndon-house.jpg" alt="Pen and ink drawing of The Herndon Home in Atlanta, GA.">
+                     <a href="Assets/herndon-house.jpg" class="lightbox-trigger">
+                        <img src="Assets/herndon-house.jpg" alt="Pen and ink drawing of The Herndon Home in Atlanta, GA.">
+                    </a>
                     <h3>The Herndon Home, Atlanta GA</h3>
                     <div class="purchase-options">
                         <a href="https://www.redbubble.com/shop/your-product-link-here" target="_blank" class="btn">Buy Print</a>
                         <a href="https://www.redbubble.com/shop/your-product-link-here" target="_blank" class="btn">Buy T-Shirt</a>
                     </div>
                 </div>
-
-                <!-- Product 3: MLK Jr. Birth Home -->
                 <div class="product-card" data-aos="fade-up" data-aos-delay="300">
-                    <img src="Assets/mlk-birth-home.jpg" alt="Pen and ink drawing of the birth home of Martin Luther King Jr.">
+                     <a href="Assets/mlk-birth-home.jpg" class="lightbox-trigger">
+                        <img src="Assets/mlk-birth-home.jpg" alt="Pen and ink drawing of the birth home of Martin Luther King Jr.">
+                    </a>
                     <h3>MLK Jr. Birth Home</h3>
                     <div class="purchase-options">
                         <a href="https://www.redbubble.com/shop/your-product-link-here" target="_blank" class="btn">Buy Print</a>
                         <a href="https://www.redbubble.com/shop/your-product-link-here" target="_blank" class="btn">Buy T-Shirt</a>
                     </div>
                 </div>
-
             </div>
         </section>
 
         <section id="about" class="about-section">
             <div class="about-content">
                 <div class="about-image" data-aos="fade-right">
-                    <!-- ALT TEXT UPDATED BELOW -->
                     <img src="Assets/artist-photo.png" alt="A photo of the artist, Andrew Knight.">
                 </div>
                 <div class="about-text" data-aos="fade-left" data-aos-delay="100">
                     <h2>About the Artist</h2>
-                    <!-- NAME UPDATED BELOW -->
                     <p>Drawing from his professional life as an architect, Andrew Knight brings a unique structural understanding to his pen and ink illustrations. This deep appreciation for form, light, and precision informs his work, which focuses on architectural landmarks and moments of quiet contemplation.</p>
                     <p>Each piece is a testament to this dual passion, a labor of love composed of thousands of individual dots that build a rich tapestry of shadow and line. Welcome to his studio.</p>
-                    <!-- ALT TEXT UPDATED BELOW -->
                     <img src="Assets/signature.png" alt="Andrew Knight's signature" class="signature">
                 </div>
             </div>
         </section>
+
+        <section id="process" class="process-section">
+            <h2 data-aos="fade-up">Behind the Ink</h2>
+            <div class="process-grid">
+                <div class="process-card" data-aos="fade-up" data-aos-delay="100">
+                    <img src="Assets/wip1.jpg" alt="The initial pencil sketch phase of a drawing.">
+                    <h4>The Foundation</h4>
+                    <p>Every piece begins with a detailed pencil sketch, mapping out proportions and perspectives.</p>
+                </div>
+                <div class="process-card" data-aos="fade-up" data-aos-delay="200">
+                    <img src="Assets/wip2.jpg" alt="A close-up of the stippling process with a fine liner pen.">
+                    <h4>The Detail</h4>
+                    <p>Layers of ink are meticulously applied, building texture and shadow dot by dot.</p>
+                </div>
+            </div>
+        </section>
+
     </main>
 
     <footer id="contact">
@@ -111,14 +130,46 @@
         <p>For commissions or inquiries, please email <a href="mailto:contact@knightstudios.art">contact@knightstudios.art</a></p>
     </footer>
 
-    <!-- AOS (Animate on Scroll) JAVASCRIPT -->
+    <a id="back-to-top-btn" href="#" aria-label="Back to top">
+        <i class="fas fa-arrow-up"></i>
+    </a>
+
+    <!-- JAVASCRIPT LIBRARIES -->
     <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/basiclightbox@5.0.4/dist/basicLightbox.min.js"></script>
+    
+    <!-- ========== NEW: CUSTOM NAVIGATION SCRIPT ========== -->
+    <script src="nav.js"></script>
+
+    <!-- MAIN SCRIPT INITIALIZERS -->
     <script>
       AOS.init({
-        duration: 800, // Animation duration
-        once: true, // Whether animation should happen only once - while scrolling down
+        duration: 800,
+        once: true,
+      });
+
+      document.querySelectorAll('.lightbox-trigger').forEach(trigger => {
+        trigger.addEventListener('click', e => {
+          e.preventDefault();
+          basicLightbox.create(`<img src="${trigger.href}">`).show();
+        });
+      });
+
+      const backToTopButton = document.getElementById("back-to-top-btn");
+      window.addEventListener("scroll", () => {
+        if (window.scrollY > 300) {
+          backToTopButton.classList.add("visible");
+        } else {
+          backToTopButton.classList.remove("visible");
+        }
+      });
+      backToTopButton.addEventListener("click", e => {
+        e.preventDefault();
+        window.scrollTo({
+          top: 0,
+          behavior: "smooth"
+        });
       });
     </script>
-
 </body>
 </html>
