@@ -44,13 +44,24 @@
     </header>
 
     <main>
-        <section class="hero">
-            <div id="p5-canvas-container"></div>
-            <div class="hero-content" data-aos="fade-in" data-aos-duration="1500">
-                <h1>Fine Art Pen & Ink Illustrations</h1>
-                <p>Original works by Andrew Knight</p>
-            </div>
-        </section>
+       <!-- ========================================================== -->
+<!-- REPLACE your existing <section class="hero"> with this one -->
+<!-- ========================================================== -->
+<section class="hero">
+    <div id="p5-canvas-container"></div>
+    <div class="hero-content">
+        <!-- CHANGE HERE: from fade-right to fade-left (it animates IN from the left) -->
+        <h1 class="hero-main-title" data-aos="fade-left" data-aos-duration="1000">
+            Fine Art Pen & Ink
+        </h1>
+        <!-- CHANGE HERE: from fade-right to fade-left -->
+        <hr class="divider" data-aos="fade-left" data-aos-duration="1000" data-aos-delay="200">
+        <!-- CHANGE HERE: from fade-right to fade-left -->
+        <p class="hero-subtitle" data-aos="fade-left" data-aos-duration="1000" data-aos-delay="400">
+            <span>Illustrations by</span> Andrew Knight
+        </p>
+    </div>
+</section>
 
         <section id="gallery" class="gallery-section">
             <h2 data-aos="fade-up">Our Collection</h2>
@@ -91,7 +102,7 @@
         <section id="about" class="about-section">
             <div class="about-content">
                 <div class="about-image" data-aos="fade-right">
-                    <img src="Assets/artist-photo.png" alt="A photo of the artist, Andrew Knight.">
+                    <img src="Assets/headshot.png" alt="A photo of the artist, Andrew Knight.">
                 </div>
                 <div class="about-text" data-aos="fade-left" data-aos-delay="100">
                     <h2>About the Artist</h2>
@@ -145,7 +156,7 @@
     <script>
       AOS.init({
         duration: 800,
-        once: true,
+        once: false,
       });
 
       document.querySelectorAll('.lightbox-trigger').forEach(trigger => {

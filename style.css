@@ -95,13 +95,20 @@ nav {
 }
 
 /* --- Hero Section & p5.js Canvas --- */
+/* ======================================================================= */
+/* REPLACE your existing Hero Section CSS rules with this entire block      */
+/* ======================================================================= */
+
+/* --- Hero Section & p5.js Canvas --- */
 .hero {
     position: relative;
     height: 450px;
     display: flex;
     align-items: center;
-    justify-content: center;
+    /* CHANGE HERE: from flex-start to flex-end */
+    justify-content: flex-end; 
     overflow: hidden;
+    padding: 0 5%; 
 }
 
 #p5-canvas-container {
@@ -120,22 +127,58 @@ nav {
 .hero-content {
     position: relative;
     z-index: 2;
-    text-align: center;
+    /* CHANGE HERE: from left to right */
+    text-align: right; 
     color: white;
-    padding: 1rem;
+    max-width: 600px;
 }
 
-h1 {
+/* We don't need the old h1 rule anymore, it's replaced by the ones below */
+
+.hero-main-title {
     font-family: var(--heading-font);
-    font-size: 3.8rem;
-    margin-bottom: 0.5rem;
+    font-size: 4.5rem; /* Much larger for impact */
+    font-weight: 700;
+    line-height: 1.1;
+    margin: 0;
     text-shadow: 0px 2px 10px rgba(0,0,0,0.7);
 }
 
-.hero p {
-    font-size: 1.2rem;
+.divider {
+    border: none;
+    height: 2px;
+    background-color: rgba(255, 255, 255, 0.7);
+    width: 100px;
+    /* CHANGE HERE: from margin: ... 0; to margin: ... auto; to push it right */
+    margin: 1.5rem 0 1.5rem auto; 
+}
+
+.hero-subtitle {
+    font-family: var(--body-font);
+    font-size: 1.3rem;
     font-weight: 300;
+    margin: 0;
     text-shadow: 0px 2px 10px rgba(0,0,0,0.7);
+}
+
+.hero-subtitle span {
+    /* Style the "Illustrations by" part differently */
+    opacity: 0.8;
+    font-weight: 300;
+    display: block; /* Puts it on its own line */
+    font-size: 1rem;
+    margin-bottom: 0.25rem;
+}
+
+
+/* --- Responsive tweaks for the new hero --- */
+@media (max-width: 768px) {
+    .hero-main-title {
+        font-size: 3rem;
+    }
+    .hero-subtitle {
+        font-size: 1.1rem;
+    }
 }
 
 /* --- Gallery Section --- */
