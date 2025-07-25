@@ -69,7 +69,7 @@
                     <!-- Slide 1: Patiently Waiting -->
                     <div class="swiper-slide">
                         <a href="Assets/patiently-waiting.jpg" class="lightbox-trigger">
-                            <img src="Assets/patiently-waiting.jpg" alt="Pen and ink drawing of a poodle looking out a window.">
+                            <img src="Assets/patiently-waiting.jpg" alt="Pen and ink drawing of a poodle looking out a window." draggable="false">
                             <div class="zoom-overlay">
                                 <i class="fas fa-search-plus"></i>
                             </div>
@@ -88,7 +88,7 @@
                     <!-- Slide 2: The Herndon Home -->
                     <div class="swiper-slide">
                          <a href="Assets/herndon-house.jpg" class="lightbox-trigger">
-                            <img src="Assets/herndon-house.jpg" alt="Pen and ink drawing of The Herndon Home in Atlanta, GA.">
+                            <img src="Assets/herndon-house.jpg" alt="Pen and ink drawing of The Herndon Home in Atlanta, GA." draggable="false">
                             <div class="zoom-overlay">
                                 <i class="fas fa-search-plus"></i>
                             </div>
@@ -107,7 +107,7 @@
                     <!-- Slide 3: MLK Jr. Birth Home -->
                     <div class="swiper-slide">
                          <a href="Assets/mlk-birth-home.jpg" class="lightbox-trigger">
-                            <img src="Assets/mlk-birth-home.jpg" alt="Pen and ink drawing of the birth home of Martin Luther King Jr.">
+                            <img src="Assets/mlk-birth-home.jpg" alt="Pen and ink drawing of the birth home of Martin Luther King Jr." draggable="false">
                             <div class="zoom-overlay">
                                 <i class="fas fa-search-plus"></i>
                             </div>
@@ -219,7 +219,7 @@
         grabCursor: true,
         centeredSlides: true,
         slidesPerView: 'auto',
-        loop: true,
+        loop: false, 
         coverflowEffect: {
           rotate: 50,
           stretch: 0,
@@ -233,11 +233,17 @@
         },
       });
 
-      // "Info Toggle" button functionality
+            // "Info Toggle" button functionality
       document.querySelectorAll('.info-toggle').forEach(button => {
         button.addEventListener('click', () => {
           const slide = button.closest('.swiper-slide');
           slide.classList.toggle('info-open');
+
+          // Wait for CSS transition to finish, then tell Swiper to update
+          //  prevents layout recalculation
+          setTimeout(() => {
+            swiper.update(); 
+          }, 510); 
         });
       });
     </script>
