@@ -205,7 +205,70 @@ h2 {
 .swiper-slide img {
     display: block;
     width: 100%;
+    transition: transform 0.4s ease;
 }
+
+/* --- NEW: Styles for lightbox trigger and zoom icon --- */
+.lightbox-trigger {
+    position: relative;
+    display: block;
+    overflow: hidden;
+}
+
+.lightbox-trigger:hover img {
+    transform: scale(1.05);
+}
+
+.zoom-overlay {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    transition: background-color 0.3s ease, opacity 0.3s ease;
+    pointer-events: none; /* Let clicks pass through to the link */
+}
+
+.zoom-overlay i {
+    color: white;
+    font-size: 2.5rem;
+    opacity: 0;
+    transform: scale(0.8);
+    transition: opacity 0.3s ease, transform 0.3s ease;
+    text-shadow: 0 2px 8px rgba(0,0,0,0.5);
+}
+
+/* Show full overlay and icon on hover for desktop */
+@media (hover: hover) {
+    .lightbox-trigger:hover .zoom-overlay {
+        background-color: rgba(44, 62, 80, 0.6);
+    }
+
+    .lightbox-trigger:hover .zoom-overlay i {
+        opacity: 1;
+        transform: scale(1);
+    }
+}
+
+/* Persistently show a small icon in the corner for mobile/touch */
+@media (hover: none) {
+    .zoom-overlay {
+        justify-content: flex-end;
+        align-items: flex-start;
+        padding: 1rem;
+    }
+
+    .zoom-overlay i {
+        font-size: 1.5rem;
+        opacity: 0.8;
+        transform: scale(1);
+        text-shadow: 0 1px 5px rgba(0, 0, 0, 0.7);
+    }
+}
+/* --- End of new styles --- */
 
 .swiper-slide h3 {
     font-family: var(--heading-font);
