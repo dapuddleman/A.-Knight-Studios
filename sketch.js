@@ -1,7 +1,7 @@
 let particles = [];
 const numParticles = 150; // A good number for a subtle effect
 const repulsionRadius = 60; // How close the mouse needs to be to affect particles
-const repulsionStrength = 0.5; // How strongly the particles are pushed
+const repulsionStrength = 0.07; // How strongly the particles are pushed
 
 function setup() {
     let canvasContainer = document.getElementById('p5-canvas-container');
